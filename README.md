@@ -1,63 +1,112 @@
 # Statistical_analysis}
-IQ & GPA Statistical Analysis
-A full exploratory and inferential statistical analysis investigating the relationship between cognitive ability (IQ) and academic performance (GPA), with supporting analyses on gender differences and conceptual understanding scores.
+# IQ & GPA Statistical Analysis
 
-Dataset
-File: gpa_iq_cleaned.csv / gpa_iq_fixed.csv
-Sample size: 78 students
-Variables:
-ColumnDescriptionobsObservation IDgpaGrade Point Average (0–4.5 scale)iqIQ score (range: ~70–135)genderGender (1 = male, 2 = female)conceptConceptual understanding score
+A comprehensive exploratory and inferential statistical analysis investigating the relationship between cognitive ability (IQ) and academic performance (GPA).
 
-Analyses Performed
-1. Exploratory Data Analysis (EDA)
+---
 
-Distribution of GPA (histogram + KDE)
-IQ vs. GPA scatter plot coloured by gender
-GPA spread by gender (box plot)
-Variable correlation heatmap across all four variables
+## Dataset Overview
 
-2. Correlation Analysis
+| Column | Description |
+|--------|-------------|
+| `obs` | Observation ID |
+| `gpa` | Grade Point Average (0–4.5 scale) |
+| `iq` | IQ score (range: ~70–135) |
+| `gender` | Gender (1 = male, 2 = female) |
+| `concept` | Conceptual understanding score |
 
-Pearson correlation between all variable pairs
-Key finding: IQ–GPA correlation r = 0.6483 (strong positive)
-concept also shows meaningful correlation with both GPA (r = 0.55) and IQ (r = 0.49)
-gender shows near-zero correlation with GPA (r = −0.10)
+**Sample size:** 78 students
 
-3. Linear Regression — IQ → GPA
+---
 
-Simple OLS regression: GPA ~ IQ
-R² = 0.4203 — IQ explains ~42% of variance in GPA
-p-value < 0.001 — statistically significant
-95% confidence interval band plotted around regression line
+## Exploratory Data Analysis
 
-4. Residual Analysis
+![EDA Dashboard](images/combined-graphs.png)
 
-Histogram of residuals with KDE overlay
-Density plot vs. theoretical normal curve (μ = −0.00, σ = 0.68)
-Residuals are approximately normally distributed and centred at zero
+Key patterns identified:
+- GPA shows approximate normality with μ ≈ 3.0
+- Strong positive IQ-GPA correlation (r = 0.6483)
+- Gender displays minimal correlation with GPA (r = -0.10)
 
-5. Homoscedasticity Check
+---
 
-Residuals vs. IQ (predictor) scatter plot
-Dotted trend line to detect systematic patterns
-Residual spread is reasonably consistent across IQ values, supporting the linear model assumptions
+## Linear Regression: IQ → GPA
 
+![Regression Analysis](images/iq-gpa-regression-transparent.png)
 
-Key Results
-MetricValuePearson r (IQ–GPA)0.6483R²0.4203p-value< 0.001Sample size78Residual std. dev.0.68
+**Model Results:**
+- **R² = 0.4203** — IQ explains ~42% of GPA variance
+- **p-value < 0.001** — Statistically significant
+- **Equation:** GPA = β₀ + β₁(IQ) + ε
 
-Visualisations
-FileDescriptioncombined__graphs_.pngEDA dashboard: GPA distribution, IQ-GPA scatter, correlation heatmap, GPA boxplot by genderiq_gpa_regression_plot.pngRegression plot (dark background)iq_gpa_regression_plot_transparent.pngRegression plot (light/transparent background)Relation_IQ___performace.pngIQ vs. GPA regression — white background versionresiduals_plot.pngResidual histogram + density vs. normal curverefined_residuals_plot.pngRefined residual frequency & probability density plotstask4_homoscedasticity.pngResiduals vs. IQ predictor — homoscedasticity check
+The 95% confidence interval (shaded band) indicates reliable prediction within this range.
 
-How to Reproduce
+---
 
-Clone the repo and place the CSV in the working directory
-Install dependencies:
+## Residual Analysis
 
-bash   pip install pandas numpy matplotlib seaborn scipy statsmodels scikit-learn
+![Residuals](images/refined-residuals-plot.png)
 
-Run the analysis notebook/script — all plots will be regenerated from the cleaned CSV
+**Assumptions validated:**
+- Residuals approximately normal (μ = 0, σ = 0.68)
+- No systematic patterns detected
+- Model assumptions satisfied
 
+---
 
-Conclusions
-The analysis provides strong statistical evidence that IQ is a significant positive predictor of GPA. The linear model is valid — residuals are approximately normal, centred at zero, and show no strong heteroscedasticity. However, with R² ≈ 0.42, roughly 58% of GPA variance remains unexplained by IQ alone, suggesting other factors (study habits, motivation, conceptual understanding, etc.) play an important role.
+## Homoscedasticity Check
+
+![Homoscedasticity](images/task4-homoscedasticity.png)
+
+Residual spread remains consistent across IQ values, confirming constant variance assumption for linear regression.
+
+---
+
+## Key Results
+
+| Metric | Value |
+|--------|-------|
+| Pearson r (IQ–GPA) | 0.6483 |
+| R² | 0.4203 |
+| p-value | < 0.001 |
+| Sample size | 78 |
+| Residual std. dev. | 0.68 |
+
+---
+
+## Conclusions
+
+The analysis provides strong statistical evidence that **IQ is a significant positive predictor of GPA**. However, with R² ≈ 0.42, approximately **58% of GPA variance remains unexplained**, suggesting other factors (study habits, motivation, conceptual understanding) play important roles.
+
+The linear model is valid:
+✅ Residuals are approximately normal  
+✅ Residuals centered at zero  
+✅ No strong heteroscedasticity detected
+
+---
+
+## How to Reproduce
+```bash
+# Clone the repository
+git clone https://github.com/21hanny/EDA_Statistical_analysis.git
+
+# Install dependencies
+pip install pandas numpy matplotlib seaborn scipy statsmodels scikit-learn
+
+# Run the analysis
+jupyter notebook analysis.ipynb
+```
+
+---
+
+## Files
+
+- `analysis.ipynb` — Main analysis notebook
+- `gpa_iq_cleaned.csv` — Cleaned dataset
+- `images/` — All visualizations
+
+---
+
+## Author
+
+**Sourabh Saini** ([@21hanny](https://github.com/21hanny))
