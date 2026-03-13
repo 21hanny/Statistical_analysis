@@ -41,8 +41,8 @@ A comprehensive exploratory and inferential statistical analysis investigating t
 
 ## Key Results
 
-[rest of your README...]```bash
-# Clone the repository
+
+# repository
 git clone https://github.com/21hanny/EDA_Statistical_analysis.git
 
 # Install dependencies
