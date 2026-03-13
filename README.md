@@ -114,6 +114,3 @@ jupyter notebook analysis.ipynb
 
 ---
 
-## Author
-
-**Sourabh Saini** ([@21hanny](https://github.com/21hanny))
