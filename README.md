@@ -1,4 +1,3 @@
-# Statistical_analysis}
 # IQ & GPA Statistical Analysis
 
 A comprehensive exploratory and inferential statistical analysis investigating the relationship between cognitive ability (IQ) and academic performance (GPA).
@@ -19,46 +18,53 @@ A comprehensive exploratory and inferential statistical analysis investigating t
 
 ---
 
-## Exploratory Data Analysis
+## Analyses Performed
 
-![EDA Dashboard](images/combined-graphs.png)
+1. **Exploratory Data Analysis (EDA)**
+   - Distribution analysis
+   - Scatter plots and correlations
+   - Gender-based comparisons
 
-Key patterns identified:
-- GPA shows approximate normality with μ ≈ 3.0
-- Strong positive IQ-GPA correlation (r = 0.6483)
-- Gender displays minimal correlation with GPA (r = -0.10)
+2. **Correlation Analysis**
+   - Pearson correlation between all variable pairs
+   - Key finding: IQ–GPA correlation r = 0.6483
 
----
+3. **Linear Regression — IQ → GPA**
+   - Simple OLS regression
+   - R² = 0.4203 (IQ explains ~42% of GPA variance)
 
-## Linear Regression: IQ → GPA
-
-![Regression Analysis](images/iq-gpa-regression-transparent.png)
-
-**Model Results:**
-- **R² = 0.4203** — IQ explains ~42% of GPA variance
-- **p-value < 0.001** — Statistically significant
-- **Equation:** GPA = β₀ + β₁(IQ) + ε
-
-The 95% confidence interval (shaded band) indicates reliable prediction within this range.
+4. **Residual Analysis**
+   - Normality testing
+   - Heteroscedasticity assessment
 
 ---
 
-## Residual Analysis
+## Visualizations
 
-![Residuals](images/refined-residuals-plot.png)
+<p align="center">
+  <img src="images/Combined_SS.png" alt="EDA Dashboard" width="900">
+</p>
 
-**Assumptions validated:**
-- Residuals approximately normal (μ = 0, σ = 0.68)
-- No systematic patterns detected
-- Model assumptions satisfied
+### Interpretation
 
----
+**Distribution of GPA** (Top Left)
+- Approximately normal distribution centered at μ ≈ 3.0
+- KDE overlay confirms normality assumption
 
-## Homoscedasticity Check
+**Relationship between IQ and GPA** (Top Right)
+- Strong positive correlation (r = 0.65, p < 0.001)
+- Gender shows minimal impact on the relationship
+- Linear pattern validates regression approach
 
-![Homoscedasticity](images/task4-homoscedasticity.png)
+**Variable Correlation Heatmap** (Bottom Left)
+- IQ is the strongest predictor of GPA (r = 0.65)
+- Gender shows near-zero correlation with GPA (r = -0.10)
+- Concept score moderately correlates with both IQ and GPA
 
-Residual spread remains consistent across IQ values, confirming constant variance assumption for linear regression.
+**GPA Spread by Gender** (Bottom Right)
+- Similar median values (~3.0) for both groups
+- Comparable variance suggests gender is not a significant factor
+- Supports finding that gender correlation is negligible
 
 ---
 
@@ -66,23 +72,23 @@ Residual spread remains consistent across IQ values, confirming constant varianc
 
 | Metric | Value |
 |--------|-------|
-| Pearson r (IQ–GPA) | 0.6483 |
-| R² | 0.4203 |
-| p-value | < 0.001 |
-| Sample size | 78 |
-| Residual std. dev. | 0.68 |
+| **Pearson r (IQ–GPA)** | 0.6483 |
+| **R²** | 0.4203 |
+| **p-value** | < 0.001 |
+| **Sample size** | 78 |
+| **Residual std. dev.** | 0.68 |
 
 ---
 
 ## Conclusions
 
-The analysis provides strong statistical evidence that **IQ is a significant positive predictor of GPA**. However, with R² ≈ 0.42, approximately **58% of GPA variance remains unexplained**, suggesting other factors (study habits, motivation, conceptual understanding) play important roles.
+The analysis provides strong statistical evidence that **IQ is a significant positive predictor of GPA** (p < 0.001). The linear model is valid:
 
-The linear model is valid:
+✅ Residuals are approximately normal and centered at zero  
+✅ No strong heteroscedasticity detected  
+✅ R² = 0.42 indicates moderate explanatory power
 
-✅ Residuals are approximately normal  
-✅ Residuals centered at zero  
-✅ No strong heteroscedasticity detected
+However, with ~58% of GPA variance remaining unexplained by IQ alone, other factors such as study habits, motivation, and conceptual understanding play important roles in academic success.
 
 ---
 
@@ -103,8 +109,11 @@ jupyter notebook analysis.ipynb
 ## Files
 
 - `analysis.ipynb` — Main analysis notebook
-- `gpa_iq_cleaned.csv` — Cleaned dataset
-- `images/` — All visualizations
+- `gpa_iq_cleaned.csv` — Dataset
+- `images/Combined_SS.png` — Exploratory data analysis visualization
 
 ---
 
+## Author
+
+**Sourabh Saini** ([@21hanny](https://github.com/21hanny))
